@@ -1,0 +1,34 @@
+.elso {
+font-size: 18px;
+width: 200px;
+padding: 45px;
+border: 2px solid black;
+margin-bottom: 20px;
+background-image: url("duck.png");
+background-repeat: no-repeat;
+background-position:left;
+
+}
+.masodik {
+  font-size: 18px;
+  width: 200px;
+  padding: 45px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  background-image: url("duck.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+}
+.harmadik {
+  font-size: 18px;
+  width: 200px;
+  padding: 45px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  background-image: url("duck.png");
+  background-repeat: no-repeat;
+  background-position:right bottom;
+
+}
