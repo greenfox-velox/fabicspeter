@@ -9,11 +9,14 @@
   border-width: 4px;
   width: 200px;
   height: 30px;
+<<<<<<< HEAD
   background-image: url("duck.png");
   background-repeat: no-repeat;
   background-position: left;
 
 
+=======
+>>>>>>> be857e84b1550d3d066b9ed86caa3c38f325f525
 }
 .thirdd {
   background-color: yellow;
