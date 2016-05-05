@@ -1,1 +1,1 @@
-https://github.com/fabicsp/velox-syllabus
+http://fabicsp.github.io/elso.html
