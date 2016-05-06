@@ -1,0 +1,64 @@
+.main {
+
+}
+.one {
+  position: relative;
+  text-align-last: auto;
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: -130px;
+  width: 500px;
+}
+h1 {
+  margin: 0px;
+}
+.hone{
+
+  margin-bottom: 80px;
+
+}
+.honeone {
+  font-weight: bolder;
+  font-size: 60px;
+}
+span {
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: lighter;
+
+
+}
+ul {
+  font-size: 13.5px;
+  line-height: 20px;
+
+
+}
+
+img {
+  width: 70%;
+  margin-left: 260px;
+}
+h2{
+  font-size: 25px;
+  margin-bottom: 35px;
+
+
+}
+h4 {
+  font-size: 240%;
+  font-style: normal;
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(68, 68, 68);;
+  padding: 35px;
+  border: 20px;
+  width: 550px;
+  position: relative;
+  left: -50px;
+
+}
+.personal{
+  border-top: 3px solid black;
+
+}
