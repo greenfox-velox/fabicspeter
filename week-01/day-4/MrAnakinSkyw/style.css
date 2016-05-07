@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 img {
   position: relative;
   width: 70%;
   margin-left: 260px;
   border-top: 4px solid black;
   margin-top: 0px;
+=======
+.main {
+
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
 }
 .one {
   position: relative;
@@ -13,13 +18,24 @@ img {
   margin-top: -130px;
   width: 500px;
 }
+<<<<<<< HEAD
 .hone{
   margin-bottom: 80px;
+=======
+h1 {
+  margin: 0px;
+}
+.hone{
+
+  margin-bottom: 80px;
+
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
 }
 .honeone {
   font-weight: bolder;
   font-size: 60px;
 }
+<<<<<<< HEAD
 .abcd{
   font-style: oblique;
   margin-top: 3px;
@@ -39,14 +55,38 @@ body{
 }
 h1 {
   margin: 0px;
+=======
+span {
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: lighter;
+
+
+}
+ul {
+  font-size: 13.5px;
+  line-height: 20px;
+
+
+}
+
+img {
+  width: 70%;
+  margin-left: 260px;
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
 }
 h2{
   font-size: 25px;
   margin-bottom: 35px;
+<<<<<<< HEAD
   font-weight: lighter;
 }
 h3 {
   margin-bottom: 1px;
+=======
+
+
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
 }
 h4 {
   font-size: 240%;
@@ -54,11 +94,16 @@ h4 {
   font-weight: bolder;
   color: white;
   background-color: rgb(68, 68, 68);;
+<<<<<<< HEAD
   padding: 40px;
+=======
+  padding: 35px;
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
   border: 20px;
   width: 550px;
   position: relative;
   left: -50px;
+<<<<<<< HEAD
 }
 h4:before {
   display: block;
@@ -79,4 +124,11 @@ span {
 ul {
   font-size: 12px;
   line-height: 20px;
+=======
+
+}
+.personal{
+  border-top: 3px solid black;
+
+>>>>>>> e34b717c0bf926c1328864e7e27dc19a71eaefc6
 }
