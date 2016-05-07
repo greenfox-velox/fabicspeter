@@ -1,4 +1,4 @@
-.elso {
+.first {
 font-size: 18px;
 width: 200px;
 padding: 45px;
@@ -7,9 +7,8 @@ margin-bottom: 20px;
 background-image: url("duck.png");
 background-repeat: no-repeat;
 background-position:left;
-
 }
-.masodik {
+.second {
   font-size: 18px;
   width: 200px;
   padding: 45px;
@@ -18,10 +17,8 @@ background-position:left;
   background-image: url("duck.png");
   background-repeat: no-repeat;
   background-position: center;
-
-
 }
-.harmadik {
+.third {
   font-size: 18px;
   width: 200px;
   padding: 45px;
@@ -30,5 +27,4 @@ background-position:left;
   background-image: url("duck.png");
   background-repeat: no-repeat;
   background-position:right bottom;
-
 }
