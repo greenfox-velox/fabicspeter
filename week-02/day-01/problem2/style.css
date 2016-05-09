@@ -1,46 +1,39 @@
-
-body {
-  margin-top: 3px;
-  margin-left: 3px;
-}
-
-.con {
-  width: 620px;
-  height: 750px;
-
-}
 .row {
   width: 540px;
   justify-content: space-between;
   display: flex;
 }
 
+.first {
+  width: 620px;
+  height: 750px;
+}
 .aqua {
-  background: #00FFFF;
+  background: aqua;
   width: 540px;
   height: 100px;
 }
 
 .yellow {
-  background: #FEA500;
+  background: yellow;
   width: 100px;
   height: 500px;
 }
 
 .red {
-  background: #FE0000;
+  background: red;
   width: 300px;
   height: 500px;
 }
 
 .purple {
-  background: #81007F;
+  background: purple;
   width: 100px;
   height: 500px;
 }
 
 .blue {
-  background: #0000FE;
+  background: blue;
   width: 540px;
   height: 100px;
 }
