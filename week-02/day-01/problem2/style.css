@@ -1,0 +1,54 @@
+
+body {
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+.con {
+  width: 620px;
+  height: 750px;
+
+}
+.row {
+  width: 540px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.aqua {
+  background: #00FFFF;
+  width: 540px;
+  height: 100px;
+}
+
+.yellow {
+  background: #FEA500;
+  width: 100px;
+  height: 500px;
+}
+
+.red {
+  background: #FE0000;
+  width: 300px;
+  height: 500px;
+}
+
+.purple {
+  background: #81007F;
+  width: 100px;
+  height: 500px;
+}
+
+.blue {
+  background: #0000FE;
+  width: 540px;
+  height: 100px;
+}
+
+.black {
+  background: black;
+  width: 50px;
+  height: 50px;
+  margin-top: 430px;
+  margin-left: 230px;
+}

@@ -1,0 +1,30 @@
+.root {
+  width: 370px;
+}
+.kacsa {
+  float: left;
+
+}
+.kacsatwo{
+  float: right;
+}
+.one:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.one {
+  border-bottom: 2px solid black;
+  margin: 20px;
+  padding-bottom: 10px;
+}
+.two {
+  border-bottom: 2px solid black;
+  margin: 20px;
+  padding-bottom: 10px;
+}
+.root{
+    border: 1px solid black;
+    line-height: 22px;
+
+}
