@@ -1,0 +1,22 @@
+header{
+}
+.hdbig{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.subbig{
+}
+.hdone{
+display: flex;
+align-items: flex-end;
+}
+.hdtwo{
+  display: flex;
+  align-items: flex-end;
+
+}
+.hdthree{
+}
+.hdtwo p{
+}
