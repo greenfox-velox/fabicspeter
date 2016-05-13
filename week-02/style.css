@@ -20,3 +20,13 @@ align-items: flex-end;
 }
 .hdtwo p{
 }
+
+.one {
+  display: flex;
+  flex-direction: row;
+}
+.five{
+  display: flex;
+  flex-direction: column;
+  line-height: 25px;
+}
