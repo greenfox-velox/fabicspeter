@@ -1,0 +1,2 @@
+print("alma")
+prit("alma")
