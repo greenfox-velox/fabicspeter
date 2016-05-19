@@ -16,4 +16,4 @@ print (i)
 def get_all_candies_of_under_10(students):
     total_candies = 0
     for student in students:
-        if student [ge]
+        print student [get_all_candies_of_under_10()]

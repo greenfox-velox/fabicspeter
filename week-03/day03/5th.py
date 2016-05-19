@@ -12,8 +12,12 @@ class stack():
         total=0
         for i in self.store_items:
             total += 1
+        return total
 
     def push(arg):
         pass
     def popp(arg):
-        
+        pass
+
+onestack = stack()
+onestack.push("apple")
