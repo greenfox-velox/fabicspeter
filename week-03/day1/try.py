@@ -124,13 +124,14 @@ out = 0
 # if the aa list contains more than 2 set the out to 10
 # if the aa contains no elements it should set to -1
 if len(aa) == 1:
-    print(out + 1)
+    (out + 1)
 elif len(aa) == 2:
-    print(out + 2)
+    (out + 2)
 elif len(aa) >= 3:
-    print(out + 10)
+    (out + 10)
 else:
-    print(out - 1)
+    (out - 1)
+print(out)
 
 ab = 123
 credits = 100
