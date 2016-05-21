@@ -1,3 +1,13 @@
+
+def szoveg(x):
+    n = []
+    for i in range(len(x)):
+        for j in range(i + 2 , len(x)):
+            print(i)
+
+
+
+
 giraffe = {'color': 'yellow', 'pattern': 'polygonal patches'}
 my_key = ['color', 'pattern']
 whale = {'color': 'blue', 'size': 10000}
@@ -5,7 +15,7 @@ whale = {'color': 'blue', 'size': 10000}
 for kalman in my_keys:
     print(girraffe[kalman])
 
-   ez a while ciklus ugyan az mint a for-ban a kalman
+   #ez a while ciklus ugyan az mint a for-ban a kalman
 
 
 kalman = ''
