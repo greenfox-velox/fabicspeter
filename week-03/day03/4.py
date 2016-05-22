@@ -1,19 +1,30 @@
-students = [
-    {'name': 'Rezso', 'age': 9.5, 'candies': 2},
-    {'name': 'Gerzson', 'age': 10, 'candies': 1},
-    {'name': 'Aurel', 'age': 7, 'candies': 3},
-    {'name': 'Zsombor', 'age': 12, 'candies': 5},
-    {'name': 'Olaf', 'age': 12, 'candies': 7},
-    {'name': 'Teodor', 'age': 3, 'candies': 2}
-]
-i = 0
+class Student():
 
-for student in students:
-    if (student['candies']) < 4:
-        i += 1
-print (i)
+    def __init__(self):
+        self.grade = []
 
-def get_all_candies_of_under_10(students):
-    total_candies = 0
-    for student in students:
-        print student [get_all_candies_of_under_10()]
+    def get_grade(self, g):
+        if g >= 1 and g <= 5:
+            self.grade += [g]
+
+    def get_avg(self):
+        return sum(self.grade) / len(self.grade)
+
+Adam = Student()
+Brendon = Student()
+Leonardo = Student()
+
+Adam.get_grade(2)
+Adam.get_grade(3)
+Adam.get_grade(4)
+
+Brendon.get_grade(3)
+Brendon.get_grade(4)
+Brendon.get_grade(5)
+Leonardo.get_grade(1)
+Leonardo.get_grade(3)
+Leonardo.get_grade(5)
+
+print(Adam.get_avg())
+print(Brendon.get_avg())
+print(Leonardo.get_avg())
