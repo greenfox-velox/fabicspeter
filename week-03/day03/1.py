@@ -1,38 +1,17 @@
+# Create a `Circle` class that takes it's radius as cinstructor parameter
+# It should have a `get_circumference` method that returns it's circumference
+# It should have a `get_area` method that returns it's area
 
-def szoveg(x):
-    n = []
-    for i in range(len(x)):
-        for j in range(i + 2 , len(x)):
-            print(i)
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
 
+    def get_circumference(self):
+        return self.radius*2*3.14159265
 
+    def get_area(self):
+        return self.radius**2*3.14159265
 
-
-giraffe = {'color': 'yellow', 'pattern': 'polygonal patches'}
-my_key = ['color', 'pattern']
-whale = {'color': 'blue', 'size': 10000}
-
-for kalman in my_keys:
-    print(girraffe[kalman])
-
-   #ez a while ciklus ugyan az mint a for-ban a kalman
-
-
-kalman = ''
-i = 0
-while i < len(my_keys):
-    kalman = my keys[i]
-    print(girrafe[kalman])
-
-
-
-
-students = [
-    {'name': 'Rezso', 'age': 9.5, 'candies': 2},
-    {'name': 'Gerzson', 'age': 10, 'candies': 1},
-    {'name': 'Aurel', 'age': 7, 'candies': 3},
-    {'name': 'Zsombor', 'age': 12, 'candies': 5}
-]
-my_key = ['name', 'age', 'candies']
-
-print (students[1)
+circ = Circle(5)
+print("Circumference: ", circ.get_circumference())
+print("Area: ", circ.get_area())

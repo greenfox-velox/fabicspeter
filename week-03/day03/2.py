@@ -1,19 +1,21 @@
+# Create a class called "Car"
+# It should have a "type" property that stores the car's type in a string eg: "Mazda"
+# It should have a "km" property that stores how many kilometers it have run
+# The km and the type property should be a parmeter in the constructor
+# It should have a method called "run" that takes a number and increments the "km" property by it
 
-students = [
-    {'name': 'Rezso', 'age': 9.5, 'candies': 2},
-    {'name': 'Gerzson', 'age': 10, 'candies': 1},
-    {'name': 'Aurel', 'age': 7, 'candies': 3},
-    {'name': 'Zsombor', 'age': 12, 'candies': 5}
-]
+class Car ():
+  def __init__(self, type, km):
+      self.km = km
+      self.type=type
 
-print (students[1] ['name'] and students[2])
+  def run (self, plus):
+      self.km += plus
+      return self.km
 
-for student in students:
-    print (student['age'])
+my_mazda = Car("mazda", 12000)
+my_mazda.run(100)
+my_mazda.run(1000)
 
-
-for student in students:
-    if (student['age']) < 10:
-        print (student['age'])
-
-
+print(my_mazda.type)
+print(my_mazda.km)
