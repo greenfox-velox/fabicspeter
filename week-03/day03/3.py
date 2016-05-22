@@ -1,15 +1,30 @@
-students = [
-    {'name': 'Rezso', 'age': 9.5, 'candies': 2},
-    {'name': 'Gerzson', 'age': 10, 'candies': 1},
-    {'name': 'Aurel', 'age': 7, 'candies': 3},
-    {'name': 'Zsombor', 'age': 12, 'candies': 5},
-    {'name': 'Olaf', 'age': 12, 'candies': 7},
-    {'name': 'Teodor', 'age': 3, 'candies': 2}
-]
-i = 0
-total = 0
-for student in students:
-    if (student['age']) < 10:
-        i += (student['candies'])
-print (i)
+# create a pirate class
+# it should have 2 methods
+# drink_rum()
+# hows_goin_mate()
+# if the drink_rum was called at least 5 times:
+# hows_goin_mate should return "Arrrr!"
+# "Nothin'" otherwise
 
+class Pirate:
+    rum = 0
+
+    def how_its_going_mate(self):
+        if self.rum <= 5:
+            print('Nothing')
+        else:
+            print('Arrrr')
+
+    def drink_rum(self):
+        self.rum += 1
+        return self.rum
+
+Ramos = Pirate()
+Ramos.how_its_going_mate()
+Ramos.drink_rum()
+Ramos.drink_rum()
+Ramos.drink_rum()
+Ramos.drink_rum()
+Ramos.drink_rum()
+Ramos.drink_rum()
+Ramos.how_its_going_mate()
