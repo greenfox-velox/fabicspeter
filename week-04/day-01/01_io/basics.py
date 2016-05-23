@@ -33,9 +33,9 @@ def sentence(words):
 
 # 5. Create a method that gets a string and gives back the character codes in a list
 def char_codes(string):
-    f = ()
+    f = []
     for i in string:
-        f += ord(i)
+        f += [ord(i)]
     return f
 
 # 6. Create a method that gets a list of integers and gives back a string which characters are created from the numbers used as character codes
