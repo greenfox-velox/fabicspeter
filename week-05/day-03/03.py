@@ -6,7 +6,7 @@ class Person():
     def __init__(self, n, bd):
         self.name = n
         self.bd = bd
-        print(n, bd)
-
-Adam = Person('Adam', 19999)
+        if self.bd < 0 or self.bd > 2016:
+            raise ValueError
+Adam = Person('Adam', 1999)
 print (Adam.name, Adam.bd)

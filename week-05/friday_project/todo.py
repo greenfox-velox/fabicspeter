@@ -24,10 +24,14 @@ def choose_one(openfile):
 
 def choose_a():
     f = open ('todo.txt', 'a')
-    f.write(sys.argv[2] + '\n')
-    f.close()
+    if len(sys.argv) == 3:
+        f.write(sys.argv[2] + '\n')
+        f.close()
+    else:
+        raise ValueError('Unable to add: No task is provided')
 
-
+def remove_item():
+    f = open ('todo.txt', 'a')
 
 
 if len(sys.argv) == 1:
@@ -37,3 +41,4 @@ if len(sys.argv) == 2:
         (choose_one('todo.txt'))
 if sys.argv[1] == '-a':
     choose_a()
+if sys.argv[1] == '-r'
