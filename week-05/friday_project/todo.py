@@ -60,4 +60,5 @@ def main():
                 remove_item()
             else:
                 print('Csacsi öreg medvém. Ezt ne használd!')
+                print(menu())
 main()
