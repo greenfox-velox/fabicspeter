@@ -1,3 +1,4 @@
+
 import sys
 import os
 def menu():
@@ -28,24 +29,34 @@ def choose_a():
         f.write(sys.argv[2] + '\n')
         f.close()
     else:
-        raise ValueError('Unable to add: No task is provided')
+        print ('Unable to add: No task is provided')
 
 def remove_item():
-    f = open('todo.txt')
-    text = f.readlines()
-    del(text[int(sys.argv[2])-1])
-    f.close()
-    f = open('todo.txt', 'w')
-    for i in text:
-        f.write(i)
-    f.close()
+    try:
+        f = open('todo.txt')
+        text = f.readlines()
+        del(text[int(sys.argv[2])-1])
+        f.close()
+        f = open('todo.txt', 'w')
+        for i in text:
+            f.write(i)
+        f.close()
+    except IndexError:
+        if len(sys.argv) == 2:
+            print ('Valami')
+        else:
+            print('masvalami')
+    except ValueError:
+        print ('sorry but its a string')
 
-if len(sys.argv) == 1:
-    print(menu())
-if len(sys.argv) == 2:
-    if sys.argv[1] == '-l':
-        (choose_one('todo.txt'))
-if sys.argv[1] == '-a':
-    choose_a()
-if sys.argv[1] == '-r':
-    remove_item()
+def main():
+    if len(sys.argv) == 1:
+        print(menu())
+    if len(sys.argv) == 2:
+        if sys.argv[1] == '-l':
+            (choose_one('todo.txt'))
+    if sys.argv[1] == '-a':
+        choose_a()
+    if sys.argv[1] == '-r':
+        remove_item()
+main()
