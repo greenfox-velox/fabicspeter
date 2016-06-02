@@ -1,4 +1,3 @@
-
 import sys
 import os
 def menu():
@@ -9,9 +8,9 @@ def menu():
      '-l   Lists all the tasks\n'
      '-a   Adds a new task\n'
      '-r   Removes an task\n'
-     '-c   Completes an task')
+     '-c   Completes an task\n')
 
-def choose_one(openfile):
+def choose_one():
     f = open ('todo.txt')
     n = 0
     if os.stat('todo.txt').st_size == 0:
@@ -43,20 +42,22 @@ def remove_item():
         f.close()
     except IndexError:
         if len(sys.argv) == 2:
-            print ('Valami')
+            print ('Unable to remove: Index is out of bound')
         else:
-            print('masvalami')
+            print('Unable to remove: Index is out ')
     except ValueError:
-        print ('sorry but its a string')
+        print ('Unable to remove: Index is not a number')
 
 def main():
-    if len(sys.argv) == 1:
-        print(menu())
-    if len(sys.argv) == 2:
-        if sys.argv[1] == '-l':
-            (choose_one('todo.txt'))
-    if sys.argv[1] == '-a':
-        choose_a()
-    if sys.argv[1] == '-r':
-        remove_item()
+        if len(sys.argv) == 1:
+            print(menu())
+        if len(sys.argv) >= 2:
+            if sys.argv[1] == '-l':
+                choose_one()
+            elif sys.argv[1] == '-a':
+                choose_a()
+            elif sys.argv[1] == '-r':
+                remove_item()
+            else:
+                print('Csacsi öreg medvém. Ezt ne használd!')
 main()
