@@ -31,8 +31,14 @@ def choose_a():
         raise ValueError('Unable to add: No task is provided')
 
 def remove_item():
-    f = open ('todo.txt', 'a')
-
+    f = open('todo.txt')
+    text = f.readlines()
+    del(text[int(sys.argv[2])-1])
+    f.close()
+    f = open('todo.txt', 'w')
+    for i in text:
+        f.write(i)
+    f.close()
 
 if len(sys.argv) == 1:
     print(menu())
@@ -41,4 +47,5 @@ if len(sys.argv) == 2:
         (choose_one('todo.txt'))
 if sys.argv[1] == '-a':
     choose_a()
-if sys.argv[1] == '-r'
+if sys.argv[1] == '-r':
+    remove_item()
