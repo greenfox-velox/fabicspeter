@@ -34,7 +34,10 @@ def remove_item():
     try:
         f = open('todo.txt')
         text = f.readlines()
-        del(text[int(sys.argv[2])-1])
+        if int(sys.argv[2]) <= 0:
+            print('There is no Zero or below element to remove')
+        else:
+            del(text[int(sys.argv[2])-1])
         f.close()
         f = open('todo.txt', 'w')
         for i in text:
@@ -54,19 +57,20 @@ def check_item():
             text = f.readlines()
             text[int(sys.argv[2])-1] = text[int(sys.argv[2])-1].replace('[ ]', '[x]')
             f.close()
-            f = open('todo.txt', 'w')
-            for i in text:
-                f.write(i)
-            f.close()
+            if int(sys.argv[2]) <= 0:
+                print('There is no Zero or below element to check')
+            else:
+                f = open('todo.txt', 'w')
+                for i in text:
+                    f.write(i)
+                f.close()
         except IndexError:
             if len(sys.argv) == 2:
-                print ('Unable to remove: Index is out of bound')
+                print('Unable to check: No index is provided')
             else:
-                print('Unable to remove: Index is out ')
+                print('Unable to check: Index is out of bound')
         except ValueError:
-            print ('Unable to remove: Index is not a number')
-
-
+            print ('Unable to check: Index is not a number')
 
 def main():
         if len(sys.argv) == 1:

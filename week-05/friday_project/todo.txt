@@ -1,9 +1,7 @@
-1
-2
-3
-4
-7
-8
-9
-10
-
+[x]ahama
+[x]tada
+[x]tadasad
+[ ]taps
+[ ]valami
+[x]kacsa
+[ ]coca
