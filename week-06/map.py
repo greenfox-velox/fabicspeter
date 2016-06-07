@@ -8,25 +8,31 @@
 from tkinter import *
 
 root = Tk()
-canvas = Canvas(root, width='720', height='720')
+canvas = Canvas(root, width='720', height='820')
 canvas.pack()
-
 picture1 = PhotoImage(file = 'floor.png')
-m = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
-     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
-
-for n in range(0, 10):
-    for i in range(0, 10):
-        canvas.create_image(n * 72, i * 72, image = picture1, anchor = NW)
+picture2 = PhotoImage(file = 'wall.png')
+class floor_painter():
+    def __init__(self, floor):
+        self.floor = picture1
+m = [
+     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+     [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+     ]
+for n in range(len(m)):
+    for i in range(len(m[n])):
+        if m[n][i] == 0:
+            canvas.create_image(i * 72,n * 72, image = picture1, anchor = NW)
+        else:
+            canvas.create_image(i * 72, n * 72, image = picture2, anchor = NW)
 
 
 root.mainloop()
