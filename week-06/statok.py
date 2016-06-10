@@ -3,15 +3,13 @@ class Basic_stats(object):
         self.hp = 50
         self.attack = 20
 
-
     def fight(self, atacked):
-        if atacked.hp > 0 and self.hp > 0:
+        if atacked.hp > 0 and:
             atacked.hp -= self.attack * self.balta.szorzo
             self.hp -= atacked.attack
             self.hp += self.pajzs.defend
         else:
             pass
-
 
 class Balta(object):
     def __init__(self):
@@ -29,20 +27,18 @@ class Hero(Basic_stats):
         self.balta = Balta()
         self.pajzs = Pajzs()
 
-
-class defender(Basic_stats):
+class Defender(Basic_stats):
     def __init__(self):
         super().__init__()
         self.hp += 10
-        self.attack += 50
+        self.attack += 5
 
 Mario = Hero()
-gomba = defender()
+gomba = Defender()
 print('Gomba hp:')
 print(gomba.hp)
 print('Mario hp:')
 print(Mario.hp)
-# gomba.fight(Mario)
 Mario.fight(gomba)
 Mario.fight(gomba)
 Mario.fight(gomba)
