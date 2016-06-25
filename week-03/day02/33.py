@@ -3,6 +3,6 @@ ag = 'kuty'
 # and appends an 'a' character to its end
 
 def name(a):
-    print (name + 'a')
+    print (a + 'a')
 
 name(ag)
