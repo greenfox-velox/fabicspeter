@@ -1,23 +1,12 @@
 'use strict';
 
-var king = document.getElementById('b325');
-console.log(king);
+var pictureSource = document.querySelector('img');
+console.log(pictureSource.getAttribute('src'));
+pictureSource.setAttribute('src', '/home/peter/Asztal/park.jpg');
 
-var conceited = document.querySelector('.asteroid.b326');
-alert(conceited);
+var new_link = document.querySelector('a');
+new_link.setAttribute('href', 'http://www.greenfoxacademy.com/');
 
-var businessLamp = document.querySelectorAll('.big');
-console.log(1);
-businessLamp.forEach(e => console.log(e));
-
-var conceitedKing = document.querySelectorAll('.container .asteroid');
-console.log(2);
-conceitedKing.forEach(e => console.log(e));
-
-var noBusiness = document.querySelectorAll('div.asteroid');
-console.log(3);
-noBusiness.forEach(e => console.log(e));
-
-var allBizniss = document.querySelector('.asteroid.big')
-alert(allBizniss);
-console.log(allBizniss);
+var second_button_remove = document.querySelector('.this-one');
+second_button_remove.setAttribute("disabled", "true");
+second_button_remove.textContent = 'Don\'t click me!'
