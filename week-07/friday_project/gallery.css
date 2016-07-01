@@ -1,0 +1,39 @@
+* {
+  background-color: blue;
+}
+div{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+h1 {
+  margin-bottom: 50px;
+}
+.button1 .button2 {
+  display:flex;
+  align-items: flex-end;
+}
+.picture img{
+ max-height:480px;
+}
+body{
+  display: flex;
+  flex-direction: column;
+}
+.small_pictures{
+  display: flex;
+  justify-content: space-between;
+}
+.small_pictures img {
+  max-height: 90px;
+  margin-left: 7px;
+  margin-right: 6px;
+}
+button {
+  font-size: 50px;
+  color: white;
+}
+.white{
+  border-top: 10px;
+  background-color: white;
+}
