@@ -9,13 +9,21 @@ var fs = require('fs');
 //  - err: the error object if anything wrong happened
 //  - count: the word count
 
-function countLetter(err, count){
-  var counter = 0
-  console.log(String(count).split(" ").length);
-  counter ++;
+function wordCount(fileName, cb) {
+  fs.readFile(fileName, function(err, content) {
+    if (err) {
+      return cb(err);
+    }
+    var count = String(content).split(/\s/g).forEach('');
+    cb(null, count);
+  });
 }
-function wordsCounter(filename, func){
-fs.readFile(filename, func)
-}
-wordsCounter('kecske.txt', countLetter)
-console.log(55+5+5)
+
+wordCount('kecske.txt', function(err, c) {
+  console.log(err, c);
+});
+
+
+// function wordsCounter(filename, func){
+//   fs.readFile(filename, func)
+// }
