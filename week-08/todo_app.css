@@ -10,11 +10,17 @@
     line-height: 2.2;
     color: #cecece;
 }
-
+input {
+  width: 200px;
+  height: 29px;
+  margin-right: -2px;
+}
 .button-text {
     font-family: Lato-Regular, sans-serif;
-    font-size: 26px;
-    color: #df69e8;
+    font-size: 25px;
+    background-color: #df69e8;
+    color: white;
+
 }
 body {
   background-color: #50e3c2;
@@ -25,4 +31,23 @@ body {
 header{
   width: 500px;
   background-color: #f7f7f7;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  color: #9b9b9b;
+}
+.static-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.action-field {
+  display: flex;
+  align-items: flex-start;
+  color: #cecece;
+  font-size: 18px;
+}
+li {
+
 }
