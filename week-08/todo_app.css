@@ -43,11 +43,6 @@ h1 {
   align-items: center;
 }
 .action-field {
-  display: flex;
-  align-items: flex-start;
   color: #cecece;
   font-size: 18px;
-}
-li {
-
 }

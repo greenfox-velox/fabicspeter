@@ -1,7 +1,7 @@
 'use strict'
 
 var button1 = document.querySelector('.button-text');
-var input = document.querySelector('.textinput')
+var input = document.querySelector('.action-field')
 var list_element = document.querySelector('ul')
 var xhr = new XMLHttpRequest();
 console.log(input.type)
@@ -13,9 +13,11 @@ function get_todo_list(){
     data_list.forEach(function(e, i) {
       console.log(e);
       console.log(i);
-      var newTodo = document.createElement('p');
-      newTodo.classList.add(".action-field");
-      newTodo.innerHTML = ('<p-class="task>">') + data_list[i].text
+      var newTodo = document.createElement('div');
+      newTodo.classList.add("p");
+      newTodo.innerHTML = '<div class="action-field"> <p>' + data_list[i].text + '</p>'
+      // <button id = "d1" class="delButton"></button> <button id = "chk1" class="chkButton"></button> </div>';
+      // '<p-class="task>"' + data_list[i].text + '</p>'
       input.appendChild(newTodo)
     });
   };
@@ -40,6 +42,6 @@ function add_new_todo_element() {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify(the_new_todo));
 }
-
+get_todo_list()
 
 button1.addEventListener('click', get_todo_list);
