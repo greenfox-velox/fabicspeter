@@ -62,13 +62,13 @@ function getTodos() {
 //     callback(null, res);
 //     var res = JSON.parse(xhr.response)
 
-  }
-
-  xhr.open(httpMethod, endpoint)
-  xhr.setRequestHeader('content-type', 'application/json');
-  xhr.send(postDataToBackend);
-
-}
+  // }
+//
+//   xhr.open(httpMethod, endpoint)
+//   xhr.setRequestHeader('content-type', 'application/json');
+//   xhr.send(postDataToBackend);
+//
+// }
 // getXhrResponse('GET', '/tododsdffsdfsd', function(err, res) {});
 
 function addTodo(){

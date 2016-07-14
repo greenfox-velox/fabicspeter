@@ -102,3 +102,7 @@ input[type="checkbox"] {
   width: 28px;
   border-radius: 14px;
 }
+i {
+  background-image: url('trash.png');
+  margin-top: -10px;
+}
