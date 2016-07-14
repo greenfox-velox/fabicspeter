@@ -2,8 +2,7 @@
 
 var addButton = document.querySelector('button');
 var listOfTodos = document.querySelector('div.todo-list');
-var url = 'http://localhost:3000/todos'
-
+var url = 'http://localhost:3000/todos/'
 function getAllDeleteButton() {
   var removeButton = document.querySelectorAll('div.trash');
 
@@ -57,6 +56,20 @@ function getTodos() {
   xhr.open('GET', url);
   xhr.send();
 }
+// function getXhrResponse(httpMethod, endpoint, postDataToBackend, callback) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.onload = function () {
+//     callback(null, res);
+//     var res = JSON.parse(xhr.response)
+
+  }
+
+  xhr.open(httpMethod, endpoint)
+  xhr.setRequestHeader('content-type', 'application/json');
+  xhr.send(postDataToBackend);
+
+}
+// getXhrResponse('GET', '/tododsdffsdfsd', function(err, res) {});
 
 function addTodo(){
   var xhr = new XMLHttpRequest();
@@ -71,7 +84,7 @@ function addTodo(){
   xhr.open('POST', url);
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.send(JSON.stringify(inputValue));
-  console.log(JSON.stringify(inputValue));
+  // console.log(JSON.stringify(inputValue));
 }
 
 function deleteTodo(){
@@ -84,7 +97,7 @@ function deleteTodo(){
   }
   xhr.open('DELETE', url + id);
   xhr.setRequestHeader('accept', 'application/json');
-  xhr.send();
+  xhr.send({});
 }
 
 function checkOutTodo(){

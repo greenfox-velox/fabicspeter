@@ -27,32 +27,11 @@ app.get('/todos', function(req, res){
     if(err){
       console.log(err.toString());
     }
-    console.log(result);
+    // console.log(result);
     res.send(result)
   });
 });
 
-// app.get('/todos/:id', function(req, res) {
-//   con.query('SELECT * FROM todos WHERE id = ""', function(err, result){
-//     console.log(result);
-//     res.send(result);
-//   })
-// });
-//   res.send(storedInfos.filter(function(e) {
-//     if (parseInt(e.id) === parseInt(req.params.id)) {
-//       return (e);
-//     }
-//   }));
-// });
-// app.get('/todos/:id', function(req, res) {
-//   con.query('SELECT * FROM todolist WHERE destroyed =0' + req.params.id, function(err,row){
-//     if(err) {
-//       console.log(err.toString());
-//       return;
-//     }
-//     errorHandling(res, row[0]);
-//   });
-// });
 
 function createNewTodo(id, text) {
   var newTodo = {
@@ -69,21 +48,48 @@ app.post('/todos', function(req, res) {
       console.log(err);
       return;
     }
-  res.send(createNewTodo(row.insertId, req.body.text));
+    res.send(createNewTodo(row.insertId, req.body.text));
   });
 });
 
-// UPDATE todolist SET text='mATE SAID', destroyed`='1' WHERE `id`='5';
 
 app.delete('/todos/:id', function(req, res) {
-  con.query('UPDATE todolist SET destroyed=1 WHERE id=?' + Number(req.params.id) +' ;', function(err, result){
+  con.query('UPDATE todolist SET destroyed=1 WHERE id=' + Number(req.params.id) +' ;', function(err, result){
     if(err) {
       console.log(err);
       return;
     }
-  res.send(createNewTodo(row.insertId, req.body.text));
+    res.send(createNewTodo(Number(req.params.id), req.body.text));
   });
 });
+app.delete('/todos/:id', function(req, res) {
+  con.query('UPDATE todolist SET destroyed=1 WHERE id=' + Number(req.params.id) +' ;', function(err, result){
+    if(err) {
+      console.log(err);
+      return;
+    }
+    res.send();
+  });
+});
+
+
+// deleting all tasks ------>>>
+
+// app.delete('/todos/', function(req, res) {
+//   con.query('UPDATE todolist SET destroyed=1;', function(err, result){
+//     if(err) {
+//       console.log(err);
+//       return;
+//     }
+//     res.send(createNewTodo(Number(req.params.id), req.body.text));
+//   });
+// });
+// ---------- >
+
+
+
+
+app.listen(3000);
 
 // app.get('/todos/:id', function(req, res) {
 //   con.query(storedInfos.filter(function(e) {
@@ -116,5 +122,24 @@ app.delete('/todos/:id', function(req, res) {
 //   }
 // }
 
-
-app.listen(3000);
+// app.get('/todos/:id', function(req, res) {
+//   con.query('SELECT * FROM todos WHERE id = ""', function(err, result){
+//     console.log(result);
+//     res.send(result);
+//   })
+// });
+//   res.send(storedInfos.filter(function(e) {
+//     if (parseInt(e.id) === parseInt(req.params.id)) {
+//       return (e);
+//     }
+//   }));
+// });
+// app.get('/todos/:id', function(req, res) {
+//   con.query('SELECT * FROM todolist WHERE destroyed =0' + req.params.id, function(err,row){
+//     if(err) {
+//       console.log(err.toString());
+//       return;
+//     }
+//     errorHandling(res, row[0]);
+//   });
+// });
