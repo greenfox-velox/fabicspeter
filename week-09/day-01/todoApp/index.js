@@ -13,7 +13,7 @@ function getAllDeleteButton() {
 
 function getAllCheckbox() {
   var checkboxes = document.querySelectorAll('.todo-list input');
-
+  console.log('csacsi');
   for (var i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener('click', checkOutTodo);
   }
@@ -33,7 +33,7 @@ function newTaskWrapper(id, text, completed) {
   var newCheckbox = document.querySelector('.todo-list .task-wrapper[data-id="'+ String(id) +'"] input');
 
   if (String(completed) === 'true') {
-    newCheckbox.setAttribute('checked', '');
+    newCheckbox.setAttribute('checked');
     document.querySelector('.task-wrapper[data-id="' + id + '"]').firstChild.classList.add('checked-out');
   }
 }
@@ -42,6 +42,8 @@ function createListOfTodos(input) {
   for (var i = 0; i < input.length; i++) {
     newTaskWrapper(input[i]['id'], input[i]['text'], input[i]['completed']);
   }
+  getAllCheckbox();
+  console.log('todo');
 }
 
 function getTodos() {
@@ -79,19 +81,16 @@ function addTodo(){
     document.querySelector('input[type="text"]').value = '';
     getTodos();
     getAllDeleteButton();
-    getAllCheckbox();
   }
   xhr.open('POST', url);
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.send(JSON.stringify(inputValue));
-  // console.log(JSON.stringify(inputValue));
 }
 
 function deleteTodo(){
   var id = this.parentElement.getAttribute('data-id');
   var elementToDelete = this.parentElement;
   var xhr = new XMLHttpRequest();
-  console.log(id);
   xhr.onload = function(){
     getTodos();
   }
@@ -105,29 +104,22 @@ function checkOutTodo(){
   var id = elementToCheck.getAttribute('data-id');
   var status = elementToCheck.getAttribute('data-completed');
   if (String(status) === 'true') {
-    status = false;
+    status = 1;
   } else {
-    status = true;
+    status = 0;
   }
-  var contentText = elementToCheck.firstChild.textContent;
-  var statusUpdate = {
-    "text": contentText,
-    "completed": status
-  }
+  var statusUpdate = JSON.stringify({'completed': status});
   var xhr = new XMLHttpRequest();
-
   xhr.onload = function() {
-    var resp = JSON.parse(xhr.response);
-    getTodos();
+    // var resp = JSON.parse(xhr.response);
   }
-
-  xhr.open('PUT', url +  String(id));
+  xhr.open('PUT', url +  id);
+  console.log(id);
   xhr.setRequestHeader('content-type', 'application/json');
-  xhr.send(toString(statusUpdate));
+  xhr.send(statusUpdate);
 }
 
 addButton.addEventListener('click', addTodo);
-
 window.onload = function() {
   getTodos();
 }

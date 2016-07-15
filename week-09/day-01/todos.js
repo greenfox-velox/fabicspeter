@@ -27,11 +27,9 @@ app.get('/todos', function(req, res){
     if(err){
       console.log(err.toString());
     }
-    // console.log(result);
     res.send(result)
   });
 });
-
 
 function createNewTodo(id, text) {
   var newTodo = {
@@ -43,7 +41,7 @@ function createNewTodo(id, text) {
 }
 
 app.post('/todos', function(req, res) {
-  con.query('INSERT INTO todolist VALUE (0, 0, "' + req.body.text + '", 0)', function(err,row){
+  con.query('INSERT INTO todolist VALUE (0, 0, "' + req.body.text + '", 0, 0)', function(err,row){
     if(err) {
       console.log(err);
       return;
@@ -52,16 +50,6 @@ app.post('/todos', function(req, res) {
   });
 });
 
-
-app.delete('/todos/:id', function(req, res) {
-  con.query('UPDATE todolist SET destroyed=1 WHERE id=' + Number(req.params.id) +' ;', function(err, result){
-    if(err) {
-      console.log(err);
-      return;
-    }
-    res.send(createNewTodo(Number(req.params.id), req.body.text));
-  });
-});
 app.delete('/todos/:id', function(req, res) {
   con.query('UPDATE todolist SET destroyed=1 WHERE id=' + Number(req.params.id) +' ;', function(err, result){
     if(err) {
@@ -72,6 +60,36 @@ app.delete('/todos/:id', function(req, res) {
   });
 });
 
+// function checkInCheckOut(id, checked) {
+//   if (checked === 1) {
+//     return 0;
+//   } else {
+//     return 1;
+//   }
+// };
+
+
+app.put('/todos/:id', function(req, res) {
+  con.query('UPDATE todolist SET completed=1 WHERE id=' + Number(req.params.id) +';', function(err, result){
+    if(err) {
+      console.log(err);
+      return;
+    }
+    res.send();
+  });
+});
+
+
+app.listen(3000);
+// app.delete('/todos/:id', function(req, res) {
+//   con.query('UPDATE todolist SET destroyed=1 WHERE id=' + Number(req.params.id) +' ;', function(err, result){
+//     if(err) {
+//       console.log(err);
+//       return;
+//     }
+//     res.send(createNewTodo(Number(req.params.id), req.body.text));
+//   });
+// });
 
 // deleting all tasks ------>>>
 
@@ -86,11 +104,6 @@ app.delete('/todos/:id', function(req, res) {
 // });
 // ---------- >
 
-
-
-
-app.listen(3000);
-
 // app.get('/todos/:id', function(req, res) {
 //   con.query(storedInfos.filter(function(e) {
 //     if (e.id === req.param.id){
@@ -101,7 +114,6 @@ app.listen(3000);
 //   })[0]);
 // });
 //
-
 
 // app.delete('/todos/:id', function(req, res) {
 //   var item = todoList.filter(function (e) {
