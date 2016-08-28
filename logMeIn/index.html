@@ -4,10 +4,11 @@
     <title>Amoba</title>
 <link rel="stylesheet" href="index.css">
   </head>
-  <script src="index.js"></script>
   <body>
-    <button>Gomb</button>
+    <button onclick="localStorage.clear(), location.reload()">New Game</button>
     <div class="main">
+      <footer id="TextFooter"></footer>
+      <img src="" id="IMG">
       <div class="first_line">
         <p id="1" onclick="changeInnerHTML(1)"></p>
         <p id="2" onclick="changeInnerHTML(2)"></p>
@@ -24,5 +25,6 @@
         <p id="9" onclick="changeInnerHTML(9)"></p>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
