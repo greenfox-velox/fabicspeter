@@ -18,7 +18,6 @@ function wordCount(fileName, cb) {
     cb(null, count);
   });
 }
-
 wordCount('kecske.txt', function(err, c) {
   console.log(err, c);
 });

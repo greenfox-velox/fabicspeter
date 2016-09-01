@@ -3,6 +3,7 @@
 var addButton = document.querySelector('button');
 var listOfTodos = document.querySelector('div.todo-list');
 var url = 'http://localhost:3000/todos/'
+
 function getAllDeleteButton() {
   var removeButton = document.querySelectorAll('div.trash');
 
@@ -45,6 +46,24 @@ function createListOfTodos(input) {
   getAllCheckbox();
   console.log('todo');
 }
+function addHtml(element) {
+  var newTodo = document.createElement('div');
+  newTodo.classList.add('taskholder');
+  newTodo.innerHTML = '<div class="todo-item">' + element.text + '</div> <div class="buttons"> <button class="delete" type="button" id=' + 'd' + element.id + '></button> <input class="check" type="checkbox" id=' + 'c' + element.id + '></input> </div>';
+  newTodo.setAttribute('id', 'task' + element.id);
+  todolist.appendChild(newTodo);
+  newTodo.querySelector('#d' + element.id).addEventListener('click', deleteTask);
+  newTodo.querySelector('#c' + element.id).addEventListener('click', chkTask);
+  var checked = newTodo.querySelector('.check');
+  var checkdb = false;
+  if (element.completed === 1) {
+    checkdb = true;
+  } else if (element.completed === 0) {
+    checkdb = false;
+  }
+  checked.checked = checkdb;
+  inputField.value = '';
+}
 
 function getTodos() {
   var xhr = new XMLHttpRequest();
@@ -54,24 +73,21 @@ function getTodos() {
     console.log(JSON.parse(xhr.response));
     getAllDeleteButton();
   }
-
   xhr.open('GET', url);
   xhr.send();
 }
+
 // function getXhrResponse(httpMethod, endpoint, postDataToBackend, callback) {
 //   var xhr = new XMLHttpRequest();
 //   xhr.onload = function () {
 //     callback(null, res);
 //     var res = JSON.parse(xhr.response)
-
-  // }
-//
+//   }
 //   xhr.open(httpMethod, endpoint)
 //   xhr.setRequestHeader('content-type', 'application/json');
 //   xhr.send(postDataToBackend);
-//
 // }
-// getXhrResponse('GET', '/tododsdffsdfsd', function(err, res) {});
+// getXhrResponse('GET', '/someendpoint', function(err, res) {});
 
 function addTodo(){
   var xhr = new XMLHttpRequest();

@@ -3,5 +3,6 @@
 [x]tadasad
 [ ]taps
 [ ]valami
-[x]kacsa
 [ ]coca
+[ ]valami
+[x]bebaszni

@@ -18,50 +18,59 @@ var small_button2 = document.querySelector('.small_button2');
 var n = 0;
 var small_counter = 0;
 
-big_picture_var.setAttribute('src', pictures[n]);
+big_picture_var.setAttribute('src', pictures[n]); //setup the great picture
+
+// CHANGE THE GREAT PICTURE BY BUTTON CLICK ------->
+
+function step_ahed_by_click () {
+  if (n === 0){
+    n = pictures.length;
+    big_picture_var.setAttribute('src', pictures[n]);
+  };
+  n --;
+     big_picture_var.setAttribute('src', pictures[n]);
+     console.log(n);
+ };
+ big_button1.addEventListener('click', step_ahed_by_click);
+
+ function step_back_by_click () {
+   if (n === pictures.length-1){
+     n = 0;
+     console.log('haho');
+   };
+   n ++;
+   big_picture_var.setAttribute('src', pictures[n-1]);
+   console.log(n);
+ };
+ big_button2.addEventListener('click', step_back_by_click);
 
 
-small_picture_setup();
+// SMALL BUTTON CONTROLING ----------------->>>
+
 function small_picture_setup() {
   for (var i = 0; i < small_picture_var.length; i++) {
     small_picture_var[i].setAttribute('src', pictures[small_counter + i]);
   }
 }
+small_picture_setup(); //setup the small pictures
+
 function small_picture_right() {
   if (small_counter >= 0 && small_counter < 2){
     small_counter++;
     small_picture_setup();
   }
 }
+small_button1.addEventListener('click', small_picture_left);
+
 function small_picture_left() {
   if (small_counter > 0 && small_counter < 3){
     small_counter--;
     small_picture_setup();
   }
 }
-big_button1.addEventListener('click', step_ahed_by_click);
-function step_ahed_by_click () {
-  if (n === 0){
-    n = pictures.length;
-  };
-     n --;
-     big_picture_var.setAttribute('src', pictures[n]);
-     console.log(n);
- };
- big_button2.addEventListener('click', step_back_by_click);
- function step_back_by_click () {
-   if (n === pictures.length -1){
-     n = 0;
-   };
-   n ++;
-      big_picture_var.setAttribute('src', pictures[n]);
-      console.log(n);
-  };
+small_button2.addEventListener('click', small_picture_right);
 
-  small_button1.addEventListener('click', small_picture_left);
-  small_button2.addEventListener('click', small_picture_right);
-
-
+// SMALL PICTURES CHANGES TO BIG BY CLIK  -------->>
 
 function click_small_image(i){
   return function(){
@@ -75,19 +84,4 @@ function click_small_image(i){
 }
 for(var i = 0; i < small_picture_var.length ; i++){
   small_picture_var[i].addEventListener('click', click_small_image(i));
-}
-
-
-
-  // function createOneTumb(i){
-  //  var newpic = document.createElement('img');
-  //  newpic.src = pictures[i];
-  //  small_picture_var.appendChild(newpic);
-  // }
-  // function createAllTumb(){
-  //    for(var i = 0; i < pictures.length; i++){
-  //      console.log(pictures[i]);
-  //      createOneTumb(i);
-  //    }
-  // }
-  // createAllTumb()
+};

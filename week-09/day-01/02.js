@@ -9,7 +9,7 @@ app.get('*', function(req, res) {
   var minutes = currentDate.getMinutes();
   var hours = currentDate.getHours();
   var seconds = currentDate.getSeconds();
-  res.send(req.path + ' ' + req.method +' ' + hours + ':'+ minutes +':'+ seconds);
+  res.send(req.path+ '<--This is the request path    ' + req.method +'<--This is the request method    ' + 'And the time is:' + hours + ':'+ minutes +':'+ seconds);
 });
 
 app.listen(3000);

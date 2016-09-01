@@ -23,3 +23,5 @@ class Student(Person):
 
 adorjan = Person('Adorjan', 'Németh')
 adorjan.greet()
+adorjan.add_grade(4)
+adorjan.add_grade(3)

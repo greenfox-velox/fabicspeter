@@ -10,3 +10,4 @@ if (p_class[3].classList.value == 'dolphin'){
 if (p_class[0].classList.value == 'apple'){
   p_class[2].textContent = 'dog'
 }
+p_class[0].classList.add('red')

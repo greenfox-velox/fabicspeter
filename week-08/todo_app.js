@@ -14,14 +14,14 @@ function get_todo_list(){
       console.log(e);
       console.log(i);
       var newTodo = document.createElement('div');
-      newTodo.classList.add("p");
-      newTodo.innerHTML = '<div class="action-field"> <p>' + data_list[i].text + '</p>'
+      // newTodo.classList.add("");
+      newTodo.innerHTML = '<p class=' + e.id + '>'+ data_list[i].text + '</p>' + '<button class="delButton">'+ 'Del' +'</button> <button id = "chk1" class="chkButton"></button> </div>'
       // <button id = "d1" class="delButton"></button> <button id = "chk1" class="chkButton"></button> </div>';
       // '<p-class="task>"' + data_list[i].text + '</p>'
       input.appendChild(newTodo)
     });
   };
-  xhr.open('GET', 'https://mysterious-dusk-8248.herokuapp.com/todos');
+  xhr.open('GET', 'https://api.myjson.com/bins/3e77b');
   xhr.send();
 }
 
@@ -30,6 +30,7 @@ function add_new_todo_element() {
   xhr.onload = function() {
     var data_list =JSON.parse(xhr.responseText);
     var newTodo = document.createElement('p');
+    console.log(data_list, newTodo);
     // newTodo.classList.add("todo-item")
     newTodo.innerHTML = '<p-class="task>">' + data_list[i].text
     newTodo.setAttribute('data_list-id', data_list.id);

@@ -1,3 +1,6 @@
+body {
+  background: url("blue.png");
+}
 
 p {
   width: 100px;
@@ -10,28 +13,39 @@ p {
   text-align: center;
   font-size: 90px;
 }
+
 .first_line {
   display: flex;
   justify-content: center;
-  /*flex-direction: row;*/
+  margin-top: 100px;
 }
+
 .third_line {
   display: flex;
   justify-content: center;
 }
+
 .second_line {
   display: flex;
   justify-content: center;
 }
+
 #TextFooter {
   font-size: 50px;
   text-align: center;
 }
-img {
-  display: block;
-  justify-content: center;
-  margin: auto;
+
+button{
+  font-size: 15px;
+  font-weight: bold;
+  width: 120px;
+  height: 40px;
+  border: 4px double #FC6;
+  border-top-color: #FC9;
+  border-left-color: #FC9;
+  border-radius: 10px;
 }
-body {
-  background: url("blue.png");
+
+button:hover {
+  border-color: #F00 #C30 #C30 #F00;
 }

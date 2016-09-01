@@ -5,3 +5,7 @@ var af = [4, 5, 6, 7];
 af.forEach(function(e) {
   console.log(e);
 });
+
+var nsa = (function(e) {console.log(e * 10)});
+
+af.map(nsa)

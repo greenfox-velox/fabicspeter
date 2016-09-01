@@ -6,4 +6,4 @@ def factor(x):
         total *= i + 1
     return total
 
-print (factor(4))
+print (factor(6))

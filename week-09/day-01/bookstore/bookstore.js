@@ -8,7 +8,6 @@ var con = mysql.createConnection({
   password: "red123",
   database: "bookstore"
 });
-
 con.connect(function(err){
  if(err){
    console.log('Error connecting to Db');
@@ -16,7 +15,6 @@ con.connect(function(err){
  }
  console.log('Connection established');
 });
-
 con.query('SELECT * FROM author;', function(err,rows){
  if (err) {
    console.log(err.toString());
@@ -25,7 +23,6 @@ con.query('SELECT * FROM author;', function(err,rows){
  console.log('Data received from Db:\n');
  console.log(rows);
 });
-
 con.query('SELECT book_name FROM book_mast;', function(err,rows){
  if (err) {
    console.log(err.toString());

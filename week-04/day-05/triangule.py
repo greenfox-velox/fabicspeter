@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 root = Tk()
 
@@ -10,7 +10,7 @@ def create_triangule(x, y, s):
 
 def create_fractal(x, y, s):
     create_triangule(x, y, s)
-    if s > 50:
+    if s > 60:
         create_fractal(x + s / 2, y, s / 2)
         create_fractal(x, y, s / 2)
         create_fractal(x + s / 4, y + 3 ** 0.5 / 2 * s / 2, s / 2)

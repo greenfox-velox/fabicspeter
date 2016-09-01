@@ -8,7 +8,6 @@
 
 class Pirate:
     rum = 0
-
     def how_its_going_mate(self):
         if self.rum <= 5:
             print('Nothing')

@@ -11,4 +11,4 @@ def lines_in_file(file_name):
     except FileNotFoundError:
         return 0
 
-print (lines_in_file('duplicaed_chars.txt'))
+print (lines_in_file('duplicated_chars.txt'))

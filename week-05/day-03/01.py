@@ -8,4 +8,7 @@ def ten_diviner(x):
             print ("Fail, its character. print a number pls")
         except ZeroDivisionError:
             print ('Hey only chuck norris can divine by 0 choose another')
+        except ValueError:
+            print('Its a string please insert a number')
+
 ten_diviner(5)

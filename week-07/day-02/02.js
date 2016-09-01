@@ -4,7 +4,7 @@
 // and calls it with one argument
 // that is the string 'apple'
 
-var printer = function (a) {
+var printer = a => {
   return a;
 };
 

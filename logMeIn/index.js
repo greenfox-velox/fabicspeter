@@ -3,27 +3,23 @@
 var isItReady = true;
 var maxTurns = 0;
 
-var positions = {1:'', 2:'', 3:'', 4:'',5:'',6:'',7:'',8:'',9:''}
-// localStorage.setItem(1, "X")
 
-function getTheClosedInfos(tomb){
+function getTheClosedInfos(){
   for(i = 1; i < 10; i++){
     document.getElementById(i).innerHTML = localStorage.getItem(i);
   }
 }
-getTheClosedInfos(positions)
 
-function changeInnerHTML(ID){
+getTheClosedInfos()
+
+function playerTurns(ID){
   maxTurns++;
-  // checkingLines()
   if (document.getElementById(ID).innerHTML === "" && isItReady && maxTurns < 9){
     document.getElementById(ID).innerHTML = "X";
-    // names[ID] = "X"
     localStorage.setItem(ID, "X")
-    checkingLines()
+    checkingTheWinner()
     machineTurns()
   }
-  // console.log(maxTurns);
 }
 
 function machineTurns(){
@@ -33,17 +29,16 @@ function machineTurns(){
     machineTurns()
   }else if(doc.getElementById(5).innerHTML === ""){
     doc.getElementById(5).innerHTML = "O"
-    // names[5] = "O"
     localStorage.setItem(5, "O")
   }
   else if (isItReady){
     doc.getElementById(randomPlace).innerHTML = "O"
     localStorage.setItem(randomPlace, "O")
   }
-  checkingLines()
+  checkingTheWinner()
 }
 
-function checkingLines(){
+function checkingTheWinner(){
   var one = document.getElementById(1).innerHTML
   var two = document.getElementById(2).innerHTML
   var three = document.getElementById(3).innerHTML
@@ -58,14 +53,12 @@ function checkingLines(){
     two == "X" && five == "X" && eight == "X" || three == "X" && six == "X" && nine == "X"||
     one == "X"&& five == "X" && nine == "X"|| three == "X" && five == "X" && seven == "X" ){
     document.getElementById("TextFooter").innerHTML = "Gratulation! You won!"
-    document.getElementById("IMG").setAttribute("src", "evelin.gif")
     isItReady = false
   }else if (one == "O"  && two == "O" && three == "O" || four == "O" && five == "O" && six == "O" ||
     seven == "O" && eight == "O" && nine == "O" || one == "O" && four == "O" && seven == "O"||
     two == "O" && five == "O" && eight == "O" || three == "O" && six == "O" && nine == "O"||
     one == "O"&& five == "O" && nine == "O"|| three == "O" && five == "O" && seven == "O"){
-    document.getElementById("TextFooter").innerHTML = "Comupter Wins! Try it again!!"
-    document.getElementById("IMG").setAttribute("src", "evelinsad.gif")
+    document.getElementById("TextFooter").innerHTML = "Computer Wins! Try it again!!"
     isItReady = false
   }
 }

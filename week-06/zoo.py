@@ -17,7 +17,7 @@ class Animal(object):
         else:
             print('Lol did not poop')
 
-class Unit_cost(object):
+class UnitCost(object):
     def __init__(self):
         self.Shrooms = 1
         self.Shrimp = 1
@@ -57,6 +57,10 @@ class Zoo(object):
                 animal.eat('Shrimp')
                 self.food['Shrimp'] -= 1
             animal.poop()
+    def buying_food(self):
+        for units in self.food:
+            if food[units] >= 5:
+                food[units] += 10
 
 budapesti_allat_es_noveny_kert = Zoo()
 budapesti_allat_es_noveny_kert.feed()

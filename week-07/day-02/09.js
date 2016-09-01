@@ -12,6 +12,10 @@ function letter_counter(s){
     }else{
       letters[e] ++
     }
-  });return letters
+  });var size = 0, key;
+    for (key in letters) {
+        if (letters.hasOwnProperty(key)) size++;
+    }
+    return size;
 }
 console.log(letter_counter('appla'));

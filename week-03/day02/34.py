@@ -5,4 +5,4 @@ def ossz(numbers):
     for i in numbers:
         total += i
     return total
-print (sum(numbers))
+print (ossz(numbers))

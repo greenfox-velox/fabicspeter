@@ -12,17 +12,17 @@ var fs = require('fs');
 // if there is some error it should call the callback with the error
 
 function countcharacters(fileName, letter, cb){
-  fs.readFile(fileName,'UTF8', function(err, content) {
+  fs.readFile(fileName, function(err, content) {
     if (err) {
-      return cb(err);
+      return err;
     }
     var counter = 0
     String(content).split('').forEach(function(e){
     if (letter === e){
       counter++;
     }
-    })
-    cb(counter)
+  });
+    cb(err, counter)
 
   });
 }
