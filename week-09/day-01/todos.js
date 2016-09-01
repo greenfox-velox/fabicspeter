@@ -14,6 +14,7 @@ var con = mysql.createConnection({
   password: "red123",
   database: "todo"
 });
+
 con.connect(function(err){
   if(err){
     console.log("Error connecting to Db");
