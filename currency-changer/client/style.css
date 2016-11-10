@@ -1,0 +1,26 @@
+select, button {
+  font-family: 'Shrikhand', cursive;
+  cursor:pointer;
+  background-color:#eee;
+  color:#7B8585;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  max-width: 111px;
+}
+button {
+  width: 120px;
+  height: 30px;
+}
+/*.converter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}*/
+
+select:hover, button:hover {
+  background-color:#beecea;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+}
