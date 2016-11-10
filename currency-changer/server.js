@@ -1,14 +1,11 @@
 'use strict'
 
 var express = require('express');
-var bodyParser = require('body-parser')
 var app = express();
 var https = require('https');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 var convert = require('xml-js');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(express.static('client'));
 
 var data = '';
