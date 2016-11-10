@@ -1,0 +1,34 @@
+{
+  "name": "fabicspeter",
+  "version": "1.0.0",
+  "description": "* Build a CV page * It was my really first homepage at the day 1: http://fabicsp.github.io/firsthp/elso.html * At this week we learnt about command line  * some git basics * And finally we created the CV of Anakin: http://fabicsp.github.io/MrAnakinSkyw/anakin.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenfox-velox/fabicspeter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenfox-velox/fabicspeter/issues"
+  },
+  "homepage": "https://github.com/greenfox-velox/fabicspeter#readme",
+  "devDependencies": {
+    "eslint": "^3.0.0",
+    "eslint-plugin-import": "^1.10.1",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "babel-jest": "^9.0.0",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-react-views": "^0.10.2",
+    "mysql": "^2.11.1",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
