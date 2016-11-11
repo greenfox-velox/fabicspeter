@@ -2,7 +2,7 @@
 
 var url = 'http://localhost:8080/data'
 
-let respObj = [];
+let infosWhatWeNeedFromEcb = [];
 let convertButton = document.querySelector('.button');
 let fromConvert = document.querySelector('.fromConvert');
 let toConvert = document.querySelector('.toConvert');
@@ -13,33 +13,33 @@ convertButton.addEventListener('click', clickAction);
 function clickAction() {
   var fromConvertrate = 1;
   var toConvertrate = 1;
-  for (var g in respObj["0"]) {
-    if (respObj["0"][g].currency == fromConvert.value){
-      fromConvertrate = Number(respObj["0"][g].rate)
+  for (var g in infosWhatWeNeedFromEcb["0"]) {
+    if (infosWhatWeNeedFromEcb["0"][g].currency == fromConvert.value){
+      fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
     }
-    if (respObj["0"][g].currency == toConvert.value) {
-      toConvertrate = Number(respObj["0"][g].rate)
+    if (infosWhatWeNeedFromEcb["0"][g].currency == toConvert.value) {
+      toConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
     }
   }
-  for(var zs in respObj){
+  for(var zs in infosWhatWeNeedFromEcb){
     let fromGraphValue = 1;
     let toGraphValue = 1;
-    for (var c in respObj[zs]){
-      if(respObj[zs][c].currency == fromConvert.value) {
-        fromGraphValue = respObj[zs][c].rate
+    for (var c in infosWhatWeNeedFromEcb[zs]){
+      if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
+        fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
       }
-      // console.log(respObj[zs][c], fromConvert.value);
-      if(respObj[zs][c].currency == toConvert.value) {
-        toGraphValue = respObj[zs][c].rate
+      // console.log(infosWhatWeNeedFromEcb[zs][c], fromConvert.value);
+      if(infosWhatWeNeedFromEcb[zs][c].currency == toConvert.value) {
+        toGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
       }
-      // console.log(respObj[zs][c]);
+      // console.log(infosWhatWeNeedFromEcb[zs][c]);
       if(zs % 10 == 0){
-        data[zs / 10] = {x:0,y:0, y0:0}
+        data[zs / 10] = {x:0,y:0}
         data[zs / 10].x = Number(zs)
         data[zs / 10].y = toGraphValue / fromGraphValue
       }
       }
-    // console.log(respObj[zs]);
+    // console.log(infosWhatWeNeedFromEcb[zs]);
   }
   console.log(data);
   creatingGraph(data)
@@ -47,12 +47,26 @@ function clickAction() {
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
   // creatingGraph()
 }
+
+
+
 var data= [
-    { x: 0, y: 1.02 },
+    { x: 0, y: 1 },
     { x: 1, y: 2 },
-    { x: 2, y: 3.111 },
+    { x: 2, y: 3 },
     { x: 3, y: 4 },
     { x: 4, y: 5 } ]
+
+// var graph = new Rickshaw.Graph({
+//         element: document.querySelector("#chart"),
+//         renderer: 'line',
+//         series: [{
+//                 data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, ...
+//                 color: 'steelblue'
+//         }]
+// });
+//
+// graph.render();
 
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
@@ -61,8 +75,9 @@ function creatingGraph (data) {
       element: charPlace,
       width: 300,
       height: 200,
+      // renderer: 'line',
       series: [{
-          color: 'steelblue',
+          color: 'lightblue',
           data: data
       }]
   });
@@ -73,18 +88,18 @@ creatingGraph(data);
 (function getCurrencyDatas() {
   var xhr = new XMLHttpRequest();
   xhr.onload = function() {
-    var response = JSON.parse(xhr.response)["gesmes:Envelope"].Cube.Cube;
-    for (var i in response){
-      respObj[i] = {}
-      respObj[i].time = response[i]._attributes.time
-      var cubeAttr = response[i].Cube
+    var resposeTrasferedToObject = JSON.parse(xhr.response)["gesmes:Envelope"].Cube.Cube;
+    for (var infosDaysBefore in resposeTrasferedToObject){
+      infosWhatWeNeedFromEcb[infosDaysBefore] = {}
+      infosWhatWeNeedFromEcb[infosDaysBefore].time = resposeTrasferedToObject[infosDaysBefore]._attributes.time
+      var cubeAttr = resposeTrasferedToObject[infosDaysBefore].Cube
+      // console.log(cubeAttr);
       for( var n in cubeAttr){
         // console.log(cubeAttr[n]._attributes);
-        respObj[i][n] = {}
-        respObj[i][n] = cubeAttr[n]._attributes
+        infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
+        infosWhatWeNeedFromEcb[infosDaysBefore][n] = cubeAttr[n]._attributes
       }
     }
-    // console.log(respObj);
   };
   xhr.open('GET', url);
   xhr.send();

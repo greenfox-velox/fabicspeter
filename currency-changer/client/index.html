@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="d3.min.js"></script>
-    <script src="d3.layout.min.js"></script>
-    <script src="rickshaw.min.js"></script>
+    <script src="./sources/d3.min.js"></script>
+    <script src="./sources/d3.layout.min.js"></script>
+    <script src="./sources/rickshaw.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="./sources/euro.jpg">
     <title>Exchanger</title>
   </head>
   <body>
     <h1>Enter Amount to convert</h1>
-    <input type="text">
+    <input type="text" dir="rtl">
     <section>
       <div class="container">
         <div class="left">
@@ -51,6 +52,7 @@
             <option value="ZAR">ZAR</option>
           </select>
         </div>
+        <div class="arrow"></div>
         <div class="right">
           <p>To</p>
           <select class="toConvert">
