@@ -1,17 +1,22 @@
 'use strict';
 
 var url = 'http://localhost:8080/data'
-
-let infosWhatWeNeedFromEcb = [];
 let convertButton = document.querySelector('.button');
 let fromConvert = document.querySelector('.fromConvert');
 let toConvert = document.querySelector('.toConvert');
 let amount = document.querySelector("input")
 let pmessage = document.querySelector(".message")
 let convertPicture = document.querySelector("img")
+let infosWhatWeNeedFromEcb = [];
 let minMax = [0, 1];
 convertButton.addEventListener('click', clickAction);
 convertPicture.addEventListener('click', changeCrurrency);
+var data= [
+  { x: 0, y: 1 },
+  { x: 1, y: 2 },
+  { x: 2, y: 3 },
+  { x: 3, y: 4 },
+  { x: 4, y: 5 } ]
 
 function changeCrurrency() {
   var fromTo = fromConvert.value
@@ -33,8 +38,8 @@ function clickAction() {
   for(var zs in infosWhatWeNeedFromEcb){
     let fromGraphValue = 1;
     let toGraphValue = 1;
-    for (var c in infosWhatWeNeedFromEcb[zs]){
-      if (zs % 10 == 0){
+    if (zs % 10 === 0){
+      for (var c in infosWhatWeNeedFromEcb[zs]){
         if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
           fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
         }
@@ -48,21 +53,13 @@ function clickAction() {
         data[zs / 10].y = toGraphValue / fromGraphValue
         minMax[zs / 10] = data[zs / 10].y
       }
-    }
-    // console.log(infosWhatWeNeedFromEcb[zs]);
+    }else{console.log("valami");}
   }
-  // console.log(data);
   creatingGraph(data)
   let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
 }
 
-var data= [
-    { x: 0, y: 1 },
-    { x: 1, y: 2 },
-    { x: 2, y: 3 },
-    { x: 3, y: 4 },
-    { x: 4, y: 5 } ]
 
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
@@ -71,6 +68,7 @@ function creatingGraph (data) {
   console.log(min, max);
   var scale = d3.scale.linear().domain([min, max]).nice();
   charPlace.innerHTML = "";
+
   var graph = new Rickshaw.Graph( {
       element: charPlace,
       width: 300,
@@ -80,6 +78,9 @@ function creatingGraph (data) {
           data: data,
           scale: scale
       }]
+  });
+  new Rickshaw.Graph.HoverDetail({
+    graph: graph
   });
   graph.render();
 };
@@ -91,8 +92,9 @@ creatingGraph(data);
     var resposeTrasferedToObject = JSON.parse(xhr.response)["gesmes:Envelope"].Cube.Cube;
     for (var infosDaysBefore in resposeTrasferedToObject){
       infosWhatWeNeedFromEcb[infosDaysBefore] = {}
-      infosWhatWeNeedFromEcb[infosDaysBefore].time = resposeTrasferedToObject[infosDaysBefore]._attributes.time
+      infosWhatWeNeedFromEcb[infosDaysBefore].time = Number(new Date (resposeTrasferedToObject[infosDaysBefore]._attributes.time))
       var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube
+      // console.log(infosWhatWeNeedFromEcb[infosDaysBefore].time);
       for( var n in dailyCurrencyRates){
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes
