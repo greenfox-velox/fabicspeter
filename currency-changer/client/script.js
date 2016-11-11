@@ -11,8 +11,13 @@ let pmessage = document.querySelector(".message")
 let convertPicture = document.querySelector("img")
 let minMax = [0, 1];
 convertButton.addEventListener('click', clickAction);
-convertPicture.addEventListener('click', clickAction);
+convertPicture.addEventListener('click', changeCrurrency);
 
+function changeCrurrency() {
+  var fromTo = fromConvert.value
+  fromConvert.value = toConvert.value
+  toConvert.value = fromTo
+}
 
 function clickAction() {
   let fromConvertrate = 1;
