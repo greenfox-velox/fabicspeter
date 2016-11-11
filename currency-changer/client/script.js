@@ -8,11 +8,14 @@ let fromConvert = document.querySelector('.fromConvert');
 let toConvert = document.querySelector('.toConvert');
 let amount = document.querySelector("input")
 let pmessage = document.querySelector(".message")
+let convertPicture = document.querySelector("img")
 convertButton.addEventListener('click', clickAction);
+convertPicture.addEventListener('click', clickAction);
+
 
 function clickAction() {
-  var fromConvertrate = 1;
-  var toConvertrate = 1;
+  let fromConvertrate = 1;
+  let toConvertrate = 1;
   for (var g in infosWhatWeNeedFromEcb["0"]) {
     if (infosWhatWeNeedFromEcb["0"][g].currency == fromConvert.value){
       fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
@@ -41,11 +44,10 @@ function clickAction() {
       }
     // console.log(infosWhatWeNeedFromEcb[zs]);
   }
-  console.log(data);
+  // console.log(data);
   creatingGraph(data)
   let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
-  // creatingGraph()
 }
 
 
@@ -57,17 +59,6 @@ var data= [
     { x: 3, y: 4 },
     { x: 4, y: 5 } ]
 
-// var graph = new Rickshaw.Graph({
-//         element: document.querySelector("#chart"),
-//         renderer: 'line',
-//         series: [{
-//                 data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, ...
-//                 color: 'steelblue'
-//         }]
-// });
-//
-// graph.render();
-
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
   charPlace.innerHTML = "";
@@ -75,7 +66,6 @@ function creatingGraph (data) {
       element: charPlace,
       width: 300,
       height: 200,
-      // renderer: 'line',
       series: [{
           color: 'lightblue',
           data: data
@@ -92,12 +82,11 @@ creatingGraph(data);
     for (var infosDaysBefore in resposeTrasferedToObject){
       infosWhatWeNeedFromEcb[infosDaysBefore] = {}
       infosWhatWeNeedFromEcb[infosDaysBefore].time = resposeTrasferedToObject[infosDaysBefore]._attributes.time
-      var cubeAttr = resposeTrasferedToObject[infosDaysBefore].Cube
-      // console.log(cubeAttr);
-      for( var n in cubeAttr){
-        // console.log(cubeAttr[n]._attributes);
+      var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube
+      for( var n in dailyCurrencyRates){
+        // console.log(dailyCurrencyRates);
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
-        infosWhatWeNeedFromEcb[infosDaysBefore][n] = cubeAttr[n]._attributes
+        infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes
       }
     }
   };

@@ -1,23 +1,35 @@
-* {
+
+body {
+  text-align: center;
+  background-color: #e8e8e8;
+}
+.actionfield {
+  display: inline-block;
+  width: 450px;
   background-color: #f7f7f7;
+  font-family: 'Shrikhand', cursive;
 }
 
 select, button {
-  font-family: 'Shrikhand', cursive;
+  /*font-family: 'Shrikhand', cursive;*/
   cursor:pointer;
   background-color:#eee;
-  /*color:#7B8585;*/
   border-radius: 3px;
   margin-bottom: 10px;
-  max-width: 111px;
 }
 input {
   background-color: white;
-  width: 350px;
-  /*text-indent: 350px;*/
+  width: 380px;
 }
+
+img {
+  width: 25px;
+  margin-top: 35px;
+  cursor:pointer;
+}
+
 button {
-  width: 120px;
+  width: 320px;
   height: 30px;
 }
 

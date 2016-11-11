@@ -18,13 +18,14 @@ https.get('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml', fu
     });
     res.on('end', function() {
       parser.parseString(data, function(err, result) {
-        app.get('/data', function(req, res){
-          var result1 = convert.xml2json(data, {compact: true, spaces: 4});
-          res.send(result1);
-        });
       });
     });
   }
+});
+
+app.get('/data', function(req, res){
+  var result1 = convert.xml2json(data, {compact: true, spaces: 4});
+  res.send(result1);
 });
 
 app.listen(8080, console.log('Im listening on port 8080'));
