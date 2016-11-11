@@ -9,6 +9,7 @@ let toConvert = document.querySelector('.toConvert');
 let amount = document.querySelector("input")
 let pmessage = document.querySelector(".message")
 let convertPicture = document.querySelector("img")
+let minMax = [0, 1];
 convertButton.addEventListener('click', clickAction);
 convertPicture.addEventListener('click', clickAction);
 
@@ -28,20 +29,21 @@ function clickAction() {
     let fromGraphValue = 1;
     let toGraphValue = 1;
     for (var c in infosWhatWeNeedFromEcb[zs]){
-      if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
-        fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
-      }
-      // console.log(infosWhatWeNeedFromEcb[zs][c], fromConvert.value);
-      if(infosWhatWeNeedFromEcb[zs][c].currency == toConvert.value) {
-        toGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
-      }
-      // console.log(infosWhatWeNeedFromEcb[zs][c]);
-      if(zs % 10 == 0){
+      if (zs % 10 == 0){
+        if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
+          fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
+        }
+        // console.log(infosWhatWeNeedFromEcb[zs][c], fromConvert.value);
+        if(infosWhatWeNeedFromEcb[zs][c].currency == toConvert.value) {
+          toGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
+        }
+        // console.log(infosWhatWeNeedFromEcb[zs][c]);
         data[zs / 10] = {x:0,y:0}
         data[zs / 10].x = Number(zs)
         data[zs / 10].y = toGraphValue / fromGraphValue
+        minMax[zs / 10] = data[zs / 10].y
       }
-      }
+    }
     // console.log(infosWhatWeNeedFromEcb[zs]);
   }
   // console.log(data);
@@ -49,8 +51,6 @@ function clickAction() {
   let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
 }
-
-
 
 var data= [
     { x: 0, y: 1 },
@@ -61,6 +61,10 @@ var data= [
 
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
+  var min = Math.min.apply(null, minMax)
+  var max = Math.max.apply(null, minMax)
+  console.log(min, max);
+  var scale = d3.scale.linear().domain([min, max]).nice();
   charPlace.innerHTML = "";
   var graph = new Rickshaw.Graph( {
       element: charPlace,
@@ -68,7 +72,8 @@ function creatingGraph (data) {
       height: 200,
       series: [{
           color: 'lightblue',
-          data: data
+          data: data,
+          scale: scale
       }]
   });
   graph.render();
@@ -84,7 +89,6 @@ creatingGraph(data);
       infosWhatWeNeedFromEcb[infosDaysBefore].time = resposeTrasferedToObject[infosDaysBefore]._attributes.time
       var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube
       for( var n in dailyCurrencyRates){
-        // console.log(dailyCurrencyRates);
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes
       }
