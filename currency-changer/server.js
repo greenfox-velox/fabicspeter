@@ -22,7 +22,6 @@ https.get('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml', fu
     });
   }
 });
-
 app.get('/data', function(req, res){
   var result1 = convert.xml2json(data, {compact: true, spaces: 4});
   res.send(result1);

@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="./sources/graph.css">
+    <link type="text/css" rel="stylesheet" href="./sources/detail.css">
+    <link type="text/css" rel="stylesheet" href="./sources/lines.css">
     <script src="./sources/d3.min.js"></script>
     <script src="./sources/d3.layout.min.js"></script>
     <script src="./sources/rickshaw.min.js"></script>
@@ -95,10 +98,15 @@
           </div>
         </div>
       </section>
-      <div class="converter">
+      <div>
         <button type="button" name="button" class="button">Convert</button>
         <p class="message">I will tell you what's your money worth</p>
+
+      </div>
+      <div class="converter">
+        <div class="axis0"></div>
         <div class="chart"></div>
+        <div class="axis1"></div>
       </div>
     </div>
   </body>

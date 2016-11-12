@@ -41,3 +41,19 @@ select:hover, button:hover {
   display: flex;
   justify-content: space-around;
 }
+.axis0 {
+  position: absolute;
+  height: 800px;
+  width: 40px;
+}
+.axis1 {
+  position: absolute;
+  left: 1050px;
+  height: 800px;
+  width: 40px;
+}
+.chart {
+  left: 40px;
+  width: 1000px;
+  position: absolute;
+}
