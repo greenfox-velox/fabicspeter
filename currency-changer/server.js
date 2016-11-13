@@ -1,12 +1,16 @@
 'use strict'
 
 var express = require('express');
-var app = express();
+// var app = express();
 var https = require('https');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 var convert = require('xml-js');
+var app = new (require('express'))()
+var port = process.env.PORT || 8080
 app.use(express.static('client'));
+
+
 
 var data = '';
 
@@ -27,4 +31,12 @@ app.get('/data', function(req, res){
   res.send(result1);
 });
 
-app.listen(8080, console.log('Im listening on port 8080'));
+app.listen(port, function(error) {
+  if (error) {
+    console.error(error)
+  } else {
+    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
+  }
+})
+
+// app.listen(8080, console.log('Im listening on port 8080'));
