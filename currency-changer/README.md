@@ -1,3 +1,23 @@
 ### Currency-exchanger app:
 
-* Updates comeing soon, still need to refactoring, update the last function, and make better the chart drawing
+* Download the "currency-changer" folder
+
+* In the terminal: cd/currency-changer/
+
+* Type in the terminal :
+
+```
+npm install
+```
+
+* Also run the server in the :/currency-changer/ folder 
+
+```
+node server.js
+```
+
+* And finally open the browser at: 
+
+```
+http://localhost:8080/
+```
