@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon node server.js"
   },
+  "engines": {
+	"node": "4.4.7"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
