@@ -1,4 +1,7 @@
+* {
+  font-family: 'Shrikhand', cursive;
 
+}
 body {
   text-align: center;
   background-color: #e8e8e8;
@@ -7,7 +10,6 @@ body {
   display: inline-block;
   width: 450px;
   background-color: #f7f7f7;
-  font-family: 'Shrikhand', cursive;
 }
 
 select, button {
@@ -41,19 +43,17 @@ select:hover, button:hover {
   display: flex;
   justify-content: space-around;
 }
+.converter {
+  margin-left: 35px;
+
+}
 .axis0 {
   position: absolute;
-  height: 800px;
-  width: 40px;
-}
-.axis1 {
-  position: absolute;
-  left: 1050px;
-  height: 800px;
+  height: 210px;
   width: 40px;
 }
 .chart {
-  left: 40px;
-  width: 1000px;
+  left: 32px;
+  width: 400px;
   position: absolute;
 }

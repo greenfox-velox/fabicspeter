@@ -15,10 +15,10 @@ convertButton.addEventListener('click', clickAction);
 convertPicture.addEventListener('click', changeCrurrency);
 var data= [
   { x: 0, y: 1 },
-  { x: 1, y: 1 },
-  { x: 2, y: 1 },
-  { x: 3, y: 1 },
-  { x: 4, y: 1 } ]
+  { x: 1, y: 2 },
+  { x: 2, y: 3 },
+  { x: 3, y: 4 },
+  { x: 4, y: 5 } ]
 
 function changeCrurrency() {
   var fromTo = fromConvert.value
@@ -29,7 +29,6 @@ function changeCrurrency() {
 function clickAction() {
   let fromConvertrate = 1;
   let toConvertrate = 1;
-  // thats for a daily exchange
   for (var g in infosWhatWeNeedFromEcb["0"]) {
     if (infosWhatWeNeedFromEcb["0"][g].currency == fromConvert.value){
       fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
@@ -41,46 +40,38 @@ function clickAction() {
   for(var zs in infosWhatWeNeedFromEcb){
     let fromGraphValue = 1;
     let toGraphValue = 1;
-    // console.log(infosWhatWeNeedFromEcb[zs].time);
-    // if (zs % 10 === 0){
       for (var c in infosWhatWeNeedFromEcb[zs]){
         if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
           fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
         }
-        // console.log(infosWhatWeNeedFromEcb[zs][c], fromConvert.value);
         if(infosWhatWeNeedFromEcb[zs][c].currency == toConvert.value) {
           toGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
         }
-        // console.log(infosWhatWeNeedFromEcb[zs][c]);
         data[zs] = {x:0,y:0}
         data[zs].x = datesInsecond[zs] / 1000
         data[zs].y = toGraphValue / fromGraphValue
         minMax[zs] = data[zs].y
-        // console.log(datesInsecond);
       }
-      console.log(data);
-      // data[zs].x
-    // }else{console.log("valami");}
   }
-  axis0.innerHTML = "";
   creatingGraph(data)
   let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
 }
-
+// var graf = {};
 
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
   var min = Math.min.apply(null, minMax)
   var max = Math.max.apply(null, minMax)
-  console.log(min, max);
   var scale = d3.scale.linear().domain([min, max]).nice();
+  axis0.innerHTML = "";
   charPlace.innerHTML = "";
 
   var graph = new Rickshaw.Graph( {
       element: charPlace,
       width: 300,
       height: 200,
+      renderer: 'line',
       series: [{
           color: 'lightblue',
           name: "rate",
@@ -105,6 +96,7 @@ function creatingGraph (data) {
   });
   graph.render();
 };
+
 creatingGraph(data);
 
 (function getCurrencyDatas() {
