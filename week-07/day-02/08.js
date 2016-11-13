@@ -13,8 +13,8 @@ var students = [
 // create a function that counts the students that
 // has more than 4 candies
 
-var each_counter = 0
 function over_candies(students){
+  var each_counter = 0
   students.forEach(function(e){
   if (e.candies > 4){
     each_counter ++

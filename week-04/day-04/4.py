@@ -5,5 +5,5 @@ def smt(base, n):
         return 1
     else:
         return base * smt(base, n -1 )
-
+        
 print (smt(3, 3))

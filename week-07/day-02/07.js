@@ -2,8 +2,8 @@
 
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-create a function that takes an array of numbers and returns a boolean
-it should return true if all the elements are prime, false otherwise
+// create a function that takes an array of numbers and returns a boolean
+// it should return true if all the elements are prime, false otherwise
 function prime_elements(array){
   return array.every(isPrime())
 }

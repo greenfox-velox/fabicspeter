@@ -5,10 +5,8 @@ def decrypt(file_name):
     original = f.readlines()
 
     for i in original:
-        #i = i.rstrip()
         line = i[:: 1]
         result += line
-
     f.close()
     return result
 

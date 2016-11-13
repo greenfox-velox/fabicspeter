@@ -4,12 +4,10 @@ def decrypt(file_name):
     f = open(file_name)
     result = ''
     original = f.readlines()
-
     for i in original:
         i = i.rstrip()
         line = i[:: -1]
         result += line + '\n'
-
     f.close()
     return result
 

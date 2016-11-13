@@ -2,7 +2,7 @@
 
 var addButton = document.querySelector('button');
 var listOfTodos = document.querySelector('div.todo-list');
-var url = 'http://localhost:3000/caloriServer'
+var url = 'http://localhost:3000/todoServer'
 
 function getAllDeleteButton() {
   var removeButton = document.querySelectorAll('div.trash');

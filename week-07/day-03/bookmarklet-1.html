@@ -5,7 +5,8 @@
   <title>Workshop: Bookmarklets</title>
 </head>
 <body>
-  <a href="javascript:(function(){var h1_replacer = document.querySelectorAll('h1'); h1_replacer.textContent = 'Green Fox Academy Conquers the World';for (var i = 0; i < h1_replacer.length; i ++){h1_replacer[i].textContent = 'Thank you for your attention!!!!'};})()">
+  <!-- <a href="javascript:(function(){var h1_replacer = document.querySelectorAll('h1'); h1_replacer.textContent = 'Green Fox Academy Conquers the World';for (var i = 0; i < h1_replacer.length; i ++){h1_replacer[i].textContent = 'Thank you for your attention!!!!'};})()"> -->
+  <a href="javascript: (function(){localStorage.setItem('savedGame', '[[false,false,false],[false,false,false],[false,false,false]]');location.reload()})()">
     Bookmarklet 1
   </a>
   <h1>Antoine de Saint-Exupery's 110th Birthday</h1>
