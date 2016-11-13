@@ -29,35 +29,34 @@ function changeCrurrency() {
 function clickAction() {
   let fromConvertrate = 1;
   let toConvertrate = 1;
-  for (var g in infosWhatWeNeedFromEcb["0"]) {
-    if (infosWhatWeNeedFromEcb["0"][g].currency == fromConvert.value){
-      fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
+  for (var each in infosWhatWeNeedFromEcb["0"]) {
+    if (infosWhatWeNeedFromEcb["0"][each].currency == fromConvert.value){
+      fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][each].rate);
     }
-    if (infosWhatWeNeedFromEcb["0"][g].currency == toConvert.value) {
-      toConvertrate = Number(infosWhatWeNeedFromEcb["0"][g].rate)
+    if (infosWhatWeNeedFromEcb["0"][each].currency == toConvert.value) {
+      toConvertrate = Number(infosWhatWeNeedFromEcb["0"][each].rate);
     }
   }
-  for(var zs in infosWhatWeNeedFromEcb){
+  for(var i in infosWhatWeNeedFromEcb){
     let fromGraphValue = 1;
     let toGraphValue = 1;
-      for (var c in infosWhatWeNeedFromEcb[zs]){
-        if(infosWhatWeNeedFromEcb[zs][c].currency == fromConvert.value) {
-          fromGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
+      for (var c in infosWhatWeNeedFromEcb[i]){
+        if(infosWhatWeNeedFromEcb[i][c].currency == fromConvert.value) {
+          fromGraphValue = infosWhatWeNeedFromEcb[i][c].rate;
         }
-        if(infosWhatWeNeedFromEcb[zs][c].currency == toConvert.value) {
-          toGraphValue = infosWhatWeNeedFromEcb[zs][c].rate
+        if(infosWhatWeNeedFromEcb[i][c].currency == toConvert.value) {
+          toGraphValue = infosWhatWeNeedFromEcb[i][c].rate;
         }
-        data[zs] = {x:0,y:0}
-        data[zs].x = datesInsecond[zs] / 1000
-        data[zs].y = toGraphValue / fromGraphValue
-        minMax[zs] = data[zs].y
+        data[i] = {x:0,y:0};
+        data[i].x = datesInsecond[i] / 1000;
+        data[i].y = toGraphValue / fromGraphValue;
+        minMax[i] = data[i].y;
       }
   }
   creatingGraph(data)
   let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
 }
-// var graf = {};
 
 function creatingGraph (data) {
   var charPlace = document.querySelector(".chart")
@@ -109,7 +108,6 @@ creatingGraph(data);
       infosWhatWeNeedFromEcb[infosDaysBefore].time = timeInMilliseconds
       datesInsecond.splice(0, 0, timeInMilliseconds)
       var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube
-      // console.log(infosWhatWeNeedFromEcb[infosDaysBefore].time);
       for( var n in dailyCurrencyRates){
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
         infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes
