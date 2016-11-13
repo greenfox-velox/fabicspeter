@@ -5,7 +5,6 @@ let convertButton = document.querySelector('.button');
 let fromConvert = document.querySelector('.fromConvert');
 let toConvert = document.querySelector('.toConvert');
 let amount = document.querySelector("input");
-let axis0 = document.querySelector(".axis0");
 let pmessage = document.querySelector(".message");
 let convertPicture = document.querySelector("img");
 let infosWhatWeNeedFromEcb = [];
@@ -13,7 +12,7 @@ let minMax = [0, 1];
 let datesInsecond= [];
 convertButton.addEventListener('click', clickAction);
 convertPicture.addEventListener('click', changeCrurrency);
-var data= [
+var data = [
   { x: 0, y: 1 },
   { x: 1, y: 2 },
   { x: 2, y: 3 },
@@ -29,14 +28,16 @@ function changeCrurrency() {
 function clickAction() {
   let fromConvertrate = 1;
   let toConvertrate = 1;
-  for (var each in infosWhatWeNeedFromEcb["0"]) {
-    if (infosWhatWeNeedFromEcb["0"][each].currency == fromConvert.value){
-      fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][each].rate);
+  for (var indexes in infosWhatWeNeedFromEcb["0"]) {
+    var value = infosWhatWeNeedFromEcb["0"][indexes].currency
+    if ( value == fromConvert.value){
+      fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][indexes].rate);
     }
-    if (infosWhatWeNeedFromEcb["0"][each].currency == toConvert.value) {
-      toConvertrate = Number(infosWhatWeNeedFromEcb["0"][each].rate);
+    if (value == toConvert.value) {
+      toConvertrate = Number(infosWhatWeNeedFromEcb["0"][indexes].rate);
     }
   }
+  let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   for(var i in infosWhatWeNeedFromEcb){
     let fromGraphValue = 1;
     let toGraphValue = 1;
@@ -47,25 +48,20 @@ function clickAction() {
         if(infosWhatWeNeedFromEcb[i][c].currency == toConvert.value) {
           toGraphValue = infosWhatWeNeedFromEcb[i][c].rate;
         }
-        data[i] = {x:0,y:0};
-        data[i].x = datesInsecond[i] / 1000;
-        data[i].y = toGraphValue / fromGraphValue;
-        minMax[i] = data[i].y;
+        data[i] = {x:0,y:0}, data[i].x = datesInsecond[i] / 1000, data[i].y = toGraphValue / fromGraphValue, minMax[i] = data[i].y;
       }
   }
   creatingGraph(data)
-  let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
   pmessage.textContent = "Your "+ amount.value +" "+ fromConvert.value + " worth " + yourMoneyWorth + " " + toConvert.value
 }
 
 function creatingGraph (data) {
+  let axis0 = document.querySelector(".axis0");
   var charPlace = document.querySelector(".chart")
   var min = Math.min.apply(null, minMax)
   var max = Math.max.apply(null, minMax)
   var scale = d3.scale.linear().domain([min, max]).nice();
-  axis0.innerHTML = "";
-  charPlace.innerHTML = "";
-
+  axis0.innerHTML = "", charPlace.innerHTML = "";
   var graph = new Rickshaw.Graph( {
       element: charPlace,
       width: 300,
@@ -78,7 +74,6 @@ function creatingGraph (data) {
           scale: scale
       }]
   });
-
   new Rickshaw.Graph.Axis.Y.Scaled({
     element: document.querySelector('.axis0'),
     graph: graph,
@@ -86,7 +81,6 @@ function creatingGraph (data) {
     scale: scale,
     tickFormat: Rickshaw.Fixtures.Number.formatKMBT
   });
-
   Rickshaw.Graph.Axis.Time({
     graph: graph
   });
