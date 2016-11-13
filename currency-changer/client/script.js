@@ -1,15 +1,15 @@
 'use strict';
 
 var url = 'http://localhost:8080/data'
-let convertButton = document.querySelector('.button');
-let fromConvert = document.querySelector('.fromConvert');
-let toConvert = document.querySelector('.toConvert');
-let amount = document.querySelector("input");
-let pmessage = document.querySelector(".message");
-let convertPicture = document.querySelector("img");
-let infosWhatWeNeedFromEcb = [];
-let minMax = [0, 1];
-let datesInsecond= [];
+var convertButton = document.querySelector('.button');
+var fromConvert = document.querySelector('.fromConvert');
+var toConvert = document.querySelector('.toConvert');
+var amount = document.querySelector("input");
+var pmessage = document.querySelector(".message");
+var convertPicture = document.querySelector("img");
+var infosWhatWeNeedFromEcb = [];
+var minMax = [0, 1];
+var datesInsecond= [];
 convertButton.addEventListener('click', clickAction);
 convertPicture.addEventListener('click', changeCrurrency);
 var data = [
@@ -17,30 +17,30 @@ var data = [
   { x: 1, y: 2 },
   { x: 2, y: 3 },
   { x: 3, y: 4 },
-  { x: 4, y: 5 } ]
+  { x: 4, y: 5 } ];
 
 function changeCrurrency() {
-  var fromTo = fromConvert.value
-  fromConvert.value = toConvert.value
-  toConvert.value = fromTo
+  var fromTo = fromConvert.value;
+  fromConvert.value = toConvert.value;
+  toConvert.value = fromTo;
 }
 
 function clickAction() {
-  let fromConvertrate = 1;
-  let toConvertrate = 1;
+  var fromConvertrate = 1;
+  var toConvertrate = 1;
   for (var indexes in infosWhatWeNeedFromEcb["0"]) {
-    var value = infosWhatWeNeedFromEcb["0"][indexes].currency
-    if ( value == fromConvert.value){
+    var currencyValue = infosWhatWeNeedFromEcb["0"][indexes].currency;
+    if ( currencyValue == fromConvert.value){
       fromConvertrate = Number(infosWhatWeNeedFromEcb["0"][indexes].rate);
     }
-    if (value == toConvert.value) {
+    if (currencyValue == toConvert.value) {
       toConvertrate = Number(infosWhatWeNeedFromEcb["0"][indexes].rate);
     }
   }
-  let yourMoneyWorth = amount.value * toConvertrate / fromConvertrate
+  var yourMoneyWorth = amount.value * toConvertrate / fromConvertrate;
   for(var i in infosWhatWeNeedFromEcb){
-    let fromGraphValue = 1;
-    let toGraphValue = 1;
+    var fromGraphValue = 1;
+    var toGraphValue = 1;
       for (var c in infosWhatWeNeedFromEcb[i]){
         if(infosWhatWeNeedFromEcb[i][c].currency == fromConvert.value) {
           fromGraphValue = infosWhatWeNeedFromEcb[i][c].rate;
@@ -56,10 +56,10 @@ function clickAction() {
 }
 
 function creatingGraph (data) {
-  let axis0 = document.querySelector(".axis0");
-  var charPlace = document.querySelector(".chart")
-  var min = Math.min.apply(null, minMax)
-  var max = Math.max.apply(null, minMax)
+  var axis0 = document.querySelector(".axis0");
+  var charPlace = document.querySelector(".chart");
+  var min = Math.min.apply(null, minMax);
+  var max = Math.max.apply(null, minMax);
   var scale = d3.scale.linear().domain([min, max]).nice();
   axis0.innerHTML = "", charPlace.innerHTML = "";
   var graph = new Rickshaw.Graph( {
@@ -97,14 +97,14 @@ creatingGraph(data);
   xhr.onload = function() {
     var resposeTrasferedToObject = JSON.parse(xhr.response)["gesmes:Envelope"].Cube.Cube;
     for (var infosDaysBefore in resposeTrasferedToObject){
-      let timeInMilliseconds = Number(new Date (resposeTrasferedToObject[infosDaysBefore]._attributes.time))
-      infosWhatWeNeedFromEcb[infosDaysBefore] = {}
-      infosWhatWeNeedFromEcb[infosDaysBefore].time = timeInMilliseconds
+      var timeInMilliseconds = Number(new Date (resposeTrasferedToObject[infosDaysBefore]._attributes.time));
+      infosWhatWeNeedFromEcb[infosDaysBefore] = {};
+      infosWhatWeNeedFromEcb[infosDaysBefore].time = timeInMilliseconds;
       datesInsecond.splice(0, 0, timeInMilliseconds)
-      var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube
+      var dailyCurrencyRates = resposeTrasferedToObject[infosDaysBefore].Cube;
       for( var n in dailyCurrencyRates){
-        infosWhatWeNeedFromEcb[infosDaysBefore][n] = {}
-        infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes
+        infosWhatWeNeedFromEcb[infosDaysBefore][n] = {};
+        infosWhatWeNeedFromEcb[infosDaysBefore][n] = dailyCurrencyRates[n]._attributes;
       }
     }
   };
