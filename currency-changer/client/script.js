@@ -75,7 +75,7 @@ function creatingGraph (data) {
       }]
   });
   new Rickshaw.Graph.Axis.Y.Scaled({
-    element: document.querySelector('.axis0'),
+    element: axis0,
     graph: graph,
     orientation: 'left',
     scale: scale,
