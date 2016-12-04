@@ -1,0 +1,41 @@
+<html>
+<body>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="app/app.js"></script>
+	<h1 class="page-header">Type here your favorite coffes, and their adress</h1>
+	<div ng-app="myApp" ng-controller="cntrl">
+		<form class="page-header">
+			Name: <input type="text" ng-model="id" name="id" class="type-here">
+			Adress: <input type="text" ng-model="name" name="id" class="type-here">
+		</form>
+		<div class="button-wrapper">
+			<input type="button" value="{{btnName}}" class="{{btnName}}" ng-click="insertdata()" >
+		</div>
+		<p>{{msg}}</p>
+		<div class="table-responsive">
+			<table data-ng-init="displayCoffe()" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Adress</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="coffe in data">
+							<td class="col-md-5">{{coffe.coffename}}</td>
+							<td class="col-md-5">{{coffe.position}}</td>
+							<td class="buttons">
+								<button ng-click="deleteCoffe(coffe.ID);" class="btn-danger">Delete</button>
+								<button ng-click="editCoffe(coffe.coffename, coffe.position, coffe.ID);" class="btn-warning">Edit</button>
+							</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

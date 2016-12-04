@@ -1,0 +1,33 @@
+
+.button-wrapper {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+.Insert {
+  background-color: lightgreen;
+  width:305px;
+  height: 35px;
+}
+.Update{
+  background-color: lightblue;
+  width: 305px;
+  height: 35px;
+}
+button, .Update, .Insert{
+  border-radius: 5px;
+}
+.type-here {
+  width: 300px;
+  border-radius: 3px;
+}
+.type-here:hover{
+  background-color:#F8F8FF;
+}
+.page-header {
+  text-align: center;
+}
+.buttons {
+  width: 50px;
+}
