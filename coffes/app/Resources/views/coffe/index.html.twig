@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <h2 class="page-header">Coffes you liked</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Adress</th>
+        <!-- <th>Username</th> -->
+      </tr> </thead>
+      <tbody>
+        {% for coffe in coffes %}
+        <tr>
+          <th scope="row">{{coffe.id}}</th>
+          <td>{{coffe.name}}</td>
+          <td>{{coffe.adress}}</td>
+          <td>
+             <a href="/edit/{{coffe.id}}" class="btn btn-default">Edit</a>
+             <a href="/delete/{{coffe.id}}" class="btn btn-danger">Delete</a>
+           </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
